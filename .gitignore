@@ -60,9 +60,6 @@ coverage.xml
 celerybeat-schedule
 celerybeat.pid
 
-# IPython Notebook
-.ipynb_checkpoints
-
 # IDE specific files
 .idea/
 .vscode/
