@@ -46,7 +46,7 @@ A API oferece os seguintes endpoints principais:
 
 ## Configuração e Execução do Ambiente
 
-Siga os passos abaixo para configurar e rodar a API localmente:
+Siga os passos abaixo para configurar e rodar a API localmente: (a containerização dom Dockerfile foi um requisito opcional para a entrega do projeto e não impacta na execução normal dessa API, por isso a inicialização via Dockerfile não será explicitada nesse documento)
 
 1.  **Clone o Repositório:**
     ```bash
