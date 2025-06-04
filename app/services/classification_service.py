@@ -53,3 +53,5 @@ def obter_predicoes_classificacao(texto_original: str) -> dict:
         "classifiedType": tipo_predito,
         "classifiedSeverity": severidade_predita
     }
+
+print("a")
