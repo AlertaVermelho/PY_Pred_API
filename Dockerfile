@@ -7,7 +7,7 @@ ENV APP_HOME /app_service
 RUN groupadd -r appuser && useradd --no-log-init -r -g appuser -d ${APP_HOME} -s /sbin/nologin -c "Docker image user" appuser
 
 RUN mkdir -p ${APP_HOME}
-WORKDIR ${APP_HOME} # Define o diretório de trabalho padrão dentro do container
+WORKDIR ${APP_HOME}
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
@@ -15,11 +15,12 @@ RUN pip install --no-cache-dir --upgrade pip && \
 
 RUN python -m nltk.downloader stopwords -d /usr/local/share/nltk_data && \
     python -m nltk.downloader rslp -d /usr/local/share/nltk_data
-
 ENV NLTK_DATA /usr/local/share/nltk_data
 
 COPY ./app ${APP_HOME}/app
 COPY ./saved_models ${APP_HOME}/saved_models
+
+ENV PYTHONPATH "${APP_HOME}:${PYTHONPATH}"
 
 RUN chown -R appuser:appuser ${APP_HOME}
 
