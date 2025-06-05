@@ -90,6 +90,29 @@ Siga os passos abaixo para configurar e rodar a API localmente: (a containeriza�
     * Documentação interativa (Swagger UI): `http://127.0.0.1:8000/docs`
     * Documentação alternativa (ReDoc): `http://127.0.0.1:8000/redoc`
 
+
+Também é possivel rodar a API via Docker:
+O `Dockerfile` na raiz deste projeto permite construir uma imagem Docker para esta API.
+
+1.  **Clone o Repositório:**
+    ```bash
+    git clone [https://github.com/AlertaVermelho/PY_Pred_API]
+    cd PY_PRED_API
+    ```
+
+2.  **Construa a Imagem Docker:**
+    ```bash
+    docker build -t redalert-python-ai-vm:1.0.0 .
+    cd PY_PRED_API
+    ```
+
+3.  **Exemplo de Comando `docker run` para a API Python:**
+    ```bash
+    docker run -d \
+      --name python-ai-api-redalert \
+      -p 127.0.0.1:8000:8000  \
+      redalert-python-ai-vm:1.0.0
+    ```
 ---
 
 ## Correlação com os Notebooks de Desenvolvimento (Pasta `/notebooks`)
@@ -101,3 +124,6 @@ Os modelos de Machine Learning e a lógica de processamento desta API foram dese
 * **`03_Alerts_Clustering.ipynb` (ou similar):** Descreve a exploração e implementação do algoritmo de clustering DBSCAN. Detalha a preparação dos dados sintéticos (gerados no notebook 01 e classificados com os modelos do notebook 02), a experimentação com os parâmetros `eps` e `min_samples` do DBSCAN, a visualização dos clusters em mapas, e o desenvolvimento da lógica de sumarização e refinamento de hotspots que é utilizada pela API.
 
 Estes notebooks servem como uma documentação viva do processo de P&D por trás da inteligência desta API e podem ser consultados para entender em detalhes as decisões tomadas e os resultados intermediários.
+
+## Vídeos
+* Explicativo: https://youtu.be/V8hWMr59WTs
